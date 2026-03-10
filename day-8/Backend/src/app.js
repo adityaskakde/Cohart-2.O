@@ -85,7 +85,5 @@ app.patch("/api/notes/:id", async (req,res)=>{
   })
 })
 
-app.use('*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'..','public','assets','index.html'))
-})
+
 module.exports = app
