@@ -19,11 +19,52 @@ html
   display: flex;
   gap: 1.5rem;
   padding: 1rem;
+  flex-wrap: wrap;
+ 
 }
 .note{
+  display: flex;
+  gap:1rem;
+  flex-direction: column;
   background-color: #757272;
   color: rgb(242, 237, 211);
   padding :1rem;
   border-radius: 0.7rem;
   max-width: 25rem;
+   
 }
+
+.note-create-form{
+  display: flex;
+  gap:1rem;
+  padding:0.5rem;
+
+}
+.btn-container
+{
+  display: flex;
+  gap: 10px;
+}
+
+button{
+  padding: 0.5rem 1rem;
+  color: black;
+  background-color: #1cd064;
+  border: none ;
+  border-radius: 0.7rem;
+}
+ .btn-del{
+  padding: 0.5rem 1rem;
+  color: rgb(243, 238, 238);
+  background-color: #f60e0e;
+  border: none ;
+  border-radius: 0.7rem;
+ }
+ .btn-edit{
+  padding: 0.5rem 1rem;
+  color: rgb(243, 238, 238);
+  background-color: #0d44a1;
+  border: none ;
+  border-radius: 0.7rem;
+  
+ }
