@@ -38,6 +38,9 @@
         {id:user._id},
         process.env.JWT_SECRET,{expiresIn:"1d"}
     )
+    res.cookie("token",token,{
+        httpOnly:true
+    })
     res.status(200)
     .json({
         message:"User logged in successfully. ",
