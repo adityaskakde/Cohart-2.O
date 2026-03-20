@@ -35,7 +35,7 @@
     }
 
     const token = jwt.sign(
-        {id:user._id},
+        {id:user._id, username:user.username},
         process.env.JWT_SECRET,{expiresIn:"1d"}
     )
     res.cookie("token",token,{
@@ -44,6 +44,7 @@
     res.status(200)
     .json({
         message:"User logged in successfully. ",
+        token,
         user:{
             username:user.username,
             email:user.email,
@@ -88,9 +89,13 @@ async function registerController(req ,res){
      * - data unique hona chaiye
      */
     
-    const token = jwt.sign({
-        id:user._id
-    },process.env.JWT_SECRET,
+    const token = jwt.sign
+    ({
+        id:user._id,
+        username:user.username
+        
+    },
+    process.env.JWT_SECRET,
     {expiresIn:"1d"}
 )
 res.cookie("token",token)
