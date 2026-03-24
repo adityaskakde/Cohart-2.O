@@ -1,29 +1,31 @@
 import React, { useState } from "react";
 import "../styles/form.scss"
 import { Link } from "react-router";
-import axios from "axios";
+import { useAuth } from '../hooks/useAuth'
 
 const Login = () => {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   
+  const { handleLogin ,loading } = useAuth()
 
-   async function handleSubmit(e){
+  if (loading) {
+   return(
+    <h1>Loading...</h1>
+   ) 
+    
+  }
+
+   function handleSubmit(e){
 
     e.preventDefault()
 
-    await axios.post("http://localhost:3000/api/auth/login",{
-      username,
-      password
-    },{
-        withCredentials:true
-    })
-    .then(res =>{
-      console.log(res.data);
-      
-    })
-    
+    handleLogin(username, password)
+
+    setUsername("")
+    setPassword("")
+   
   }
 
   return (
@@ -34,6 +36,7 @@ const Login = () => {
 
           <form onSubmit={handleSubmit}>
             <input
+            value={username}
             onInput={(e) => {setUsername(e.target.value)}}
             type="text" 
             name="username" 
@@ -41,7 +44,8 @@ const Login = () => {
             />
 
             <input
-              onInput={(e) => {setPassword(e.target.value)}}
+            value={password}
+              onChange={(e) => {setPassword(e.target.value)}}
               type="password"
               name="password"
               placeholder='Enter password'
@@ -49,7 +53,7 @@ const Login = () => {
 
             <button type="submit">Login</button>
           </form>
-          <p>Don't habe an account? <Link className="toggleAuthForm" to="/register">Register</Link></p>
+          <p>Don't have an account? <Link className="toggleAuthForm" to="/register">Register</Link></p>
         </div>
       </main>
     </div>
