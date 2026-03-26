@@ -1,46 +1,33 @@
-main{
-    min-height: 100vh;
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin flex-column($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
-.form-container{
-    height: fit-content;
-     min-width: 400px;
-     display: flex;
-     flex-direction: column;
-     gap:1.5rem ;
+main {
+  min-height: 100vh;
+  width: 100%;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-container {
+  height: fit-content;
+  min-width: 400px;
+  @include flex-column();
 
-    form{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+  form {
+    @include flex-column();
 
-        input,button{
-            border: none;
-            outline: none;
-            padding-inline: 1.5rem;
-            padding-block:1rem;
-            border-radius: 1rem;
-        }
-        button{
-           background-color:crimson;
-           color: whitesmoke;
-           cursor: pointer;
-           transition: all .03s ease;
-           
-          &:active{
-        transform: scale(0.95);
-        background-color: darkred;
-           };
-        }
+    input
+     {
+      border: none;
+      outline: none;
+      padding-inline: 1.5rem;
+      padding-block: 1rem;
+      border-radius: 1rem;
     }
-    .toggleAuthForm{
-        color: red;
-        cursor: pointer;
-        text-decoration: none;
-    }
+   
+  }
+ 
 }

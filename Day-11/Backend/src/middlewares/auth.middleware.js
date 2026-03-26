@@ -4,12 +4,13 @@ const jwt = require("jsonwebtoken")
 async function identifyUser(req,res,next) {
    const token = req.cookies.token 
 
-
+   console.log("COOKIES:", req.cookies)
 
     if(!token){
         return res.status(401).json({
             message:"Token not provided ,unauthorized access"
         })
+
 
     }
 let decoded = null

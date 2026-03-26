@@ -1,0 +1,90 @@
+.feed-page{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 4rem;
+}
+
+.feed{
+    max-width: 350px;
+    width: 100%;
+
+    .posts{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .post{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #231c1c;
+        gap: 0.7rem;
+        padding: 0.5rem;
+        border-radius: 10px;
+
+        .user{
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+
+
+            .img-wrapper{
+                border-radius:50% ;
+                display: flex;
+                justify-content: center;
+                padding:0.1rem;
+                background: conic-gradient(from 45deg,rgb(245, 185, 73),rgb(249, 26, 234),rgb(245, 185, 73))border-box;
+
+            }
+            
+            img{
+                width:2.5rem;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+            }
+        }
+        .icons{
+            padding:0.3rem;
+            display: flex;
+            justify-content: space-between;
+
+            .like{
+                color: red;
+            }
+
+            .left{
+                display: flex;
+                gap: 0.6rem;
+        
+            }
+            .right{
+                display: flex;
+                gap: 0.6rem;
+        
+            }
+            svg{
+                width: 1.3rem;
+                aspect-ratio: 1/1;
+                color: white;
+            }
+            button{
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }
+        }
+
+        .caption{
+            font-size: 0.9rem;
+            color: white;
+
+            /* 🔥 Important fixes */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+        }
+    }
+}

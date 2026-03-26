@@ -18,7 +18,10 @@
                 email: email
             }
             ]
-    })
+    }).select('+password')
+
+
+
     if(!user){
         return res.status(404).json({
             message:"User Not found"
@@ -38,9 +41,14 @@
         {id:user._id, username:user.username},
         process.env.JWT_SECRET,{expiresIn:"1d"}
     )
-    res.cookie("token",token,{
-        httpOnly:true
-    })
+    res.cookie("token",token,
+         {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    path: "/"
+}
+    )
     res.status(200)
     .json({
         message:"User logged in successfully. ",
@@ -98,7 +106,12 @@ async function registerController(req ,res){
     process.env.JWT_SECRET,
     {expiresIn:"1d"}
 )
-res.cookie("token",token)
+res.cookie("token",token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    path: "/"
+})
 
 res.status(201).json({
     message:"User Register Sucessfully",

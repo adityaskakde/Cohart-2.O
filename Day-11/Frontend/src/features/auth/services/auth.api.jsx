@@ -11,7 +11,12 @@ export async function register(username, email, password) {
       username,
       email,
       password,
-    });
+    },
+    {
+      withCredentials:true
+    }
+  
+);
 
     return response.data; // 🔥 must
   } catch (err) {
@@ -21,10 +26,15 @@ export async function register(username, email, password) {
 
 export async function login(username, password) {
   try {
-    const response = await api.post("/login", {
+    const response = await api.post("/login", 
+      {
       username,
       password,
-    });
+    },
+    {
+      withCredentials:true
+    }
+  );
 
     return response.data; // 🔥 must
   } catch (err) {
