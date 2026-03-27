@@ -1,39 +1,54 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import "../style/feed.scss"
 import Post from "../components/Post";
 import { usePost } from "../hooks/usePost";
+import Nav from '../../shared/components/Nav';
 
 const Feed = () => {
 
-const { feed, handleGetFeed,loading} = usePost()
+  const { 
+    feed, 
+    loading, 
+    handleLike, 
+    handleUnLike,
+    handleFollow,        // 🔥 ADD
+    handleUnfollow       // 🔥 ADD
+  } = usePost()
 
-
-useEffect(() => {
-  handleGetFeed()
-  
-}, [])
-
-if (loading|| !feed ) {
-
-  return (<main>
-    <h1>Feed is Looding...</h1>
-  </main>)
-}
-
-
-console.log(feed)
+  if (loading) {
+    return (
+      <main>
+        <h1>Feed is Loading...</h1>
+      </main>
+    )
+  }
 
   return (
-   <main className='feed-page'>
-    <div className="feed">
-      <div className="posts">
-        {feed.map(post =>{
-          return <Post user={post.user} post={post} />
-        })}
-      
+    <main className='feed-page'>
+      <Nav />
+
+      <div className="feed">
+        <div className="posts">
+
+          {feed.length === 0 ? (
+            <h2>No posts yet</h2>
+          ) : (
+            feed.map(post => (
+              <Post
+                key={post._id}
+                user={post.user}
+                post={post}
+                handleLike={handleLike}
+                handleUnLike={handleUnLike}
+                handleFollow={handleFollow}       // 🔥 ADD
+                handleUnfollow={handleUnfollow}   // 🔥 ADD
+              />
+            ))
+          )}
+
+        </div>
       </div>
-    </div>
-   </main>
+    </main>
   )
 }
 

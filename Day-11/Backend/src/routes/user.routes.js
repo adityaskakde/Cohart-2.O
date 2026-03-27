@@ -9,14 +9,14 @@ const userRouter = express.Router()
  * @description follow a user
  * @access Private
  */
-userRouter.post("/follow/:username",identifyUser,userController.followUserController)
+userRouter.post("/follow/:userId",identifyUser,userController.followUserController)
 
 /**
  * @route POST /api/users/follow/:userid
  * @description unfollow a user
  * @access Private
  */
-userRouter.post("/unfollow/:username",identifyUser,userController.unfollowUserController)
+userRouter.post("/unfollow/:userId",identifyUser,userController.unfollowUserController)
 
 /**
  * @route POST /api/users/accept/:id

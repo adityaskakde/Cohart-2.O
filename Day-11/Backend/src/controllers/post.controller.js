@@ -1,10 +1,11 @@
 const postModel = require("../models/post.model")
 const ImageKit = require("@imagekit/nodejs")
-const { toFile,  } = require("@imagekit/nodejs")
+const { toFile  } = require("@imagekit/nodejs")
 const jwt = require ('jsonwebtoken')
 const likeModel = require("../models/like.model")
 const userModel = require("../models/user.model");
-const { post } = require("../app")
+
+
 
 
 const imagekit = new ImageKit({
@@ -103,12 +104,31 @@ async function likePostController(req, res) {
 }
 
 
+async function unLikePostController(req,res){
+    const postId =req.params.postId
+    const username = req.user.username
+    const isLiked = await likeModel.findOne({
+        post:postId,
+        user:username
+    })
+    if (!isLiked) {
+        return res.status(400).json({
+            message:"Post didn't liked"
+        })
+        
+    }
+    await likeModel.findByIdAndDelete(isLiked._id);
+    return res.status(200).json({
+        message:"Post Unliked sucessfully"
+    })
+}
+
 
 async function getFeedController(req, res){
  
     const user = req.user
 
-    const posts = await Promise.all((await postModel.find().populate("user").lean())
+    const posts = await Promise.all((await postModel.find().sort({_id:-1}).populate("user").lean())
     .map(async (post) =>{
         
     const isLiked = await likeModel.findOne({
@@ -131,5 +151,6 @@ module.exports = {
     getPostController,
     getPostDetailsController,
     likePostController,
-    getFeedController
+    getFeedController,
+    unLikePostController
  }
