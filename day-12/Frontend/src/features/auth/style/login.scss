@@ -1,0 +1,66 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #0f2027, #203a43, #1db954);
+  color: #fff;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .form-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    background: rgba(0, 0, 0, 0.6);   // 💥 glass effect
+    backdrop-filter: blur(12px);
+
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    width: 320px;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #1db954;   // 💚 theme heading
+      letter-spacing: 1px;
+    }
+
+    .form-group {
+      width: 100%;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.6rem;
+
+      border-radius: 0.4rem;
+      border: 1px solid rgba(255,255,255,0.1);
+
+      background: #111;
+      color: #fff;
+
+      font-size: 0.95rem;
+
+      &::placeholder {
+        color: #777;
+      }
+
+      &:focus {
+        border: 1px solid #1db954;
+        box-shadow: 0 0 8px rgba(29, 185, 84, 0.4);
+      }
+    }
+  }
+}

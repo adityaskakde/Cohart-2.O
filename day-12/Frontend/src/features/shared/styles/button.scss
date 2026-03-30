@@ -1,0 +1,28 @@
+.button {
+  width: 100%;
+  padding: 0.8rem;
+
+  border: none;
+  border-radius: 0.8rem;
+  display: block;
+
+  background: linear-gradient(135deg, #1db954, #1ed760);  // 💚 main theme
+  color: #000;
+
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.4);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #1ed760, #34ff8a);
+    box-shadow: 0 0 10px rgba(29, 185, 84, 0.7);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}

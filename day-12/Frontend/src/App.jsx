@@ -1,11 +1,16 @@
-import React from "react";
-import FaceExpression from "./features/Expression/components/FaceExpression";
-function App() {
+import {RouterProvider } from "react-router";
+import { router } from "./app.routes.jsx";
+import "./features/shared/styles/global.scss";
+import { AuthProvider } from "./features/auth/auth.context.jsx";
+
+function App(){
+
+
+
   return (
-    <div>
-      <h1>AI Face Expression Detector 😄</h1>
-      <FaceExpression />
-    </div>
+<AuthProvider>
+  <RouterProvider router={router} />
+</AuthProvider>  
   );
 }
 
