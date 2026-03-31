@@ -3,6 +3,9 @@ import { useContext } from "react";
 import { AuthContext } from "../auth.context";
 import { useEffect } from "react";
 
+
+
+
 export function useAuth() {
     const context = useContext(AuthContext)
     const { user, setUser, loading, setLoading } = context
