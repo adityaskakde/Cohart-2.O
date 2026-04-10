@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser"
 import authRouter from "./router/auth.route.js"
 import morgan from "morgan"
 import cors from "cors"
+import ChatRouter from "./router/chat.route.js"
 
 const app = express()
 
@@ -20,6 +21,7 @@ app.use(cors({
 
 // Routes
 app.use('/auth', authRouter)
+app.use('/api/chats',ChatRouter)
 
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the API' })
