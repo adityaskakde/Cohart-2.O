@@ -1,7 +1,7 @@
 import { Router } from "express"
 import { register, VerifyEmail,login ,getMe,resendVerification} from "../controllers/auth.Controller.js"
 import { registerValidation , loginValidator,} from "../validations/authValidation.js"
-import { authUser} from "../middlewares/auth.js"
+import { authUser} from "../middleware/auth.js"
 
 
 const authRouter = Router()
