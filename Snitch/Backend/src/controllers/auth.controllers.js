@@ -13,7 +13,13 @@ async function sendTokenResponse(user, res, message) {
         expiresIn: "7d"
     })
 
-    res.cookie("token", token)
+    res.cookie("token", token,{
+             httpOnly: true,
+             secure: false
+
+    }    )
+
+
 
     res.status(200).json({
         message,
@@ -21,24 +27,23 @@ async function sendTokenResponse(user, res, message) {
         user: {
             id: user._id,
             email: user.email,
-            contact: user.contact,
-            fullname: user.fullname,
+            contactNumber: user.contactNumber,
+            fullName: user.fullName,
             role: user.role
         }
     })}
 
 
-
     // Register controller
 
     export const register = async (req, res) => {
-    const { email, contact, password, fullname, isSeller } = req.body;
+    const { email, contactNumber, password, fullName, isSeller } = req.body;
 
     try {
         const existingUser = await userModel.findOne({
             $or: [
                 { email },
-                { contact }
+                { contactNumber }
             ]
         })
 
@@ -48,9 +53,9 @@ async function sendTokenResponse(user, res, message) {
 
         const user = await userModel.create({
             email,
-            contact,
+            contactNumber,
             password,
-            fullname,
+            fullName,
             role: isSeller ? "seller" : "buyer"
         })
 
@@ -61,5 +66,35 @@ async function sendTokenResponse(user, res, message) {
         return res.status(500).json({ message: "Server error" });
     }
 }
-  
 
+
+  
+// Login controller
+
+export const login = async (req, res) => {
+    const { email, password } = req.body;   
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+        return res.status(400).json({ message: "Invalid email or password" });
+    }
+
+    const isMatch = await user.comparePassword(password);
+
+    if (!isMatch) {
+        return res.status(400).json({ message: "Invalid email or password" });
+    }
+
+    await sendTokenResponse(user, res, "Login successfull");
+
+}
+
+
+// Google OAuth callback controller
+
+export const googleOAuthCallback = async (req, res) => {
+console.log(req.user);
+
+res.redirect("http://localhost:5173/")
+
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Register | OBSIDIAN EDITORIAL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "secondary": "#e7c446",
+                        "surface-dim": "#131313",
+                        "surface-bright": "#393939",
+                        "tertiary-fixed": "#ffd9e0",
+                        "tertiary-container": "#d39ca8",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary-container": "#342900",
+                        "surface": "#131313",
+                        "inverse-surface": "#e2e2e2",
+                        "on-background": "#e2e2e2",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#c2c8bf",
+                        "on-tertiary-fixed-variant": "#643a45",
+                        "primary": "#adcfad",
+                        "tertiary-fixed-dim": "#f1b7c4",
+                        "primary-fixed": "#c8ecc8",
+                        "primary-fixed-dim": "#adcfad",
+                        "primary-container": "#91b392",
+                        "secondary-fixed-dim": "#e7c446",
+                        "secondary-fixed": "#ffe07c",
+                        "on-primary-fixed-variant": "#2f4e33",
+                        "outline-variant": "#424841",
+                        "secondary-container": "#ac8e09",
+                        "on-primary-container": "#27452c",
+                        "on-surface": "#e2e2e2",
+                        "surface-tint": "#adcfad",
+                        "surface-container-low": "#1b1b1b",
+                        "on-tertiary-container": "#5c333d",
+                        "on-secondary": "#3b2f00",
+                        "on-tertiary-fixed": "#32101a",
+                        "inverse-primary": "#47664a",
+                        "inverse-on-surface": "#303030",
+                        "error-container": "#93000a",
+                        "on-primary": "#19371e",
+                        "on-secondary-fixed-variant": "#564500",
+                        "surface-container": "#1f1f1f",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-fixed": "#231b00",
+                        "on-tertiary": "#4b252f",
+                        "outline": "#8c928a",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#353535",
+                        "on-primary-fixed": "#03210b",
+                        "tertiary": "#f1b7c4",
+                        "surface-variant": "#353535",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e2e2e2;
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 53, 0.4);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-10 py-8 bg-gradient-to-b from-[#131313] to-transparent">
+<div class="flex items-center gap-4">
+<button class="scale-98 active:opacity-80 transition-all duration-300 text-[#91B392]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="text-xl font-black tracking-tighter text-[#91B392] uppercase font-['Manrope']">OBSIDIAN</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-['Manrope'] tracking-[-0.04em] text-on-surface">
+<a class="text-neutral-500 hover:text-[#91B392] transition-all duration-300" href="#">Sign In</a>
+<a class="text-[#91B392] transition-all duration-300" href="#">Join Now</a>
+</div>
+</header>
+<main class="min-h-screen pt-32 pb-24 px-6 md:px-12 lg:px-24">
+<div class="max-w-7xl mx-auto editorial-grid">
+<!-- Hero Typography Column -->
+<div class="col-span-12 lg:col-span-5 flex flex-col justify-start pt-12">
+<h1 class="text-5xl md:text-7xl font-extrabold tracking-[-0.04em] leading-tight mb-8">
+                    BECOME <br/>
+<span class="text-primary italic">PART OF</span> <br/>
+                    THE STORY.
+                </h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-sm leading-relaxed font-light opacity-80">
+                    Join a curated community of creators, thinkers, and observers. Your editorial journey begins with a single step.
+                </p>
+<!-- Decorative Aspect -->
+<div class="mt-16 hidden lg:block">
+<div class="w-24 h-1 bg-primary-container/20 mb-4"></div>
+<span class="text-[0.75rem] uppercase tracking-[0.1em] text-secondary font-bold">EST. 2024</span>
+</div>
+</div>
+<!-- Form Column -->
+<div class="col-span-12 lg:col-span-6 lg:col-start-8">
+<div class="surface-container-low rounded-xl p-8 md:p-12 relative overflow-hidden">
+<!-- Subtle Glow -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-[80px]"></div>
+<form action="#" class="space-y-10 relative z-10">
+<!-- Input Group -->
+<div class="space-y-12">
+<!-- Full Name -->
+<div class="relative group">
+<label class="block text-[0.75rem] uppercase tracking-[0.1em] text-secondary font-bold mb-2">Full Name</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-4 px-0 transition-all placeholder:text-neutral-700 font-medium tracking-wide" placeholder="ALEXANDER VOGUE" type="text"/>
+</div>
+<!-- Contact -->
+<div class="relative group">
+<label class="block text-[0.75rem] uppercase tracking-[0.1em] text-secondary font-bold mb-2">Contact Number</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-4 px-0 transition-all placeholder:text-neutral-700 font-medium tracking-wide" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<!-- Email -->
+<div class="relative group">
+<label class="block text-[0.75rem] uppercase tracking-[0.1em] text-secondary font-bold mb-2">Email Address</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-4 px-0 transition-all placeholder:text-neutral-700 font-medium tracking-wide" placeholder="HELLO@OBSIDIAN.COM" type="email"/>
+</div>
+<!-- Password -->
+<div class="relative group">
+<label class="block text-[0.75rem] uppercase tracking-[0.1em] text-secondary font-bold mb-2">Password</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-4 px-0 transition-all placeholder:text-neutral-700 font-medium tracking-wide" placeholder="••••••••••••" type="password"/>
+</div>
+</div>
+<!-- Checkbox -->
+<div class="flex items-center space-x-3 pt-4">
+<div class="relative flex items-center">
+<input class="w-5 h-5 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-offset-background focus:ring-primary" id="isSeller" type="checkbox"/>
+</div>
+<label class="text-sm font-medium text-on-surface-variant cursor-pointer select-none" for="isSeller">
+                                Are you a seller? <span class="text-secondary/60 ml-2 font-normal">(Access merchant dashboard)</span>
+</label>
+</div>
+<!-- CTA Button -->
+<div class="pt-8">
+<button class="w-full group relative flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-bold py-5 rounded-xl scale-98 active:scale-95 transition-all duration-300 shadow-xl shadow-primary/10" type="submit">
+<span class="uppercase tracking-widest text-sm">Register</span>
+<span class="material-symbols-outlined text-xl transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-center mt-6 text-xs text-neutral-500 tracking-wider">
+                                BY REGISTERING, YOU AGREE TO OUR <a class="text-on-surface hover:text-primary transition-colors" href="#">TERMS OF SERVICE</a>
+</p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Section -->
+<footer class="w-full flex flex-col md:flex-row justify-between items-center px-6 md:px-12 py-12 border-t border-white/[0.05] bg-[#0e0e0e]">
+<div class="flex flex-col md:flex-row items-center gap-8 mb-6 md:mb-0">
+<span class="font-['Manrope'] text-[0.75rem] uppercase tracking-[0.1em] text-neutral-500">
+                © 2024 OBSIDIAN EDITORIAL. ALL RIGHTS RESERVED.
+            </span>
+</div>
+<div class="flex items-center gap-8">
+<a class="font-['Manrope'] text-[0.75rem] uppercase tracking-[0.1em] text-neutral-600 hover:text-white transition-colors" href="#">Privacy</a>
+<a class="font-['Manrope'] text-[0.75rem] uppercase tracking-[0.1em] text-neutral-600 hover:text-white transition-colors" href="#">Terms</a>
+<a class="font-['Manrope'] text-[0.75rem] uppercase tracking-[0.1em] text-neutral-600 hover:text-white transition-colors" href="#">Support</a>
+</div>
+</footer>
+<!-- Decorative Elements -->
+<div class="fixed top-1/4 -left-32 w-64 h-64 bg-secondary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="fixed bottom-1/4 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+</body></html>

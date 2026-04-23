@@ -2,6 +2,11 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import authRoutes from "./routes/auth.routes.js";
+import cors from "cors";
+import passport from "passport";
+import { config } from "./config/config.js";
+import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+
 
 const app = express();
 
@@ -10,6 +15,22 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(express .urlencoded({ extended: true }));
+app.use(cors({
+    origin: "http://localhost:5173",
+    method:["GET","POST","PUT","DELETE"],
+    credentials: true
+}))
+
+// Passport configuration for Google OAuth
+passport.use(new GoogleStrategy({
+    clientID: config.GOOGLE_CLIENT_ID,
+    clientSecret: config.GOOGLE_CLIENT_SECRET, 
+    callbackURL: "/api/auth/google/callback"
+},
+  (accessToken, refreshToken, profile, done) => {
+    return done(null, profile);
+
+  }));
 
 // Routes
 app.get("/", (req, res) => {
@@ -20,7 +41,7 @@ app.get("/", (req, res) => {
 
 // Auth routes
 
-app.use("/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 
 export default app;
