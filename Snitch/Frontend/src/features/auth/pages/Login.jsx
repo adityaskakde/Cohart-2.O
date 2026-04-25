@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { useAuth } from "../hook/useAuth";
+import ContinueWithGoogle from "../components/ContinueWithGoogle"
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -62,9 +63,34 @@ const Login = () => {
                     
                     <div className="mb-10 lg:mb-16 text-center lg:text-left">
                         {/* Attractive Brand Name */}
-                        <h1 className="text-5xl sm:text-6xl font-black tracking-[0.3em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#e7c446] via-[#ffe58f] to-[#e7c446] drop-shadow-[0_0_20px_rgba(231,196,70,0.3)] mb-8 inline-block">
-                            SNITCH
-                        </h1>
+                        {/* Attractive Brand Name & Unique Icon */}
+                        <div className="flex items-center justify-center lg:justify-start mb-8 group cursor-pointer w-max mx-auto lg:mx-0">
+                            {/* Avant-Garde Spark Logo */}
+                            <div className="relative w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mr-4 sm:mr-6 transition-transform duration-[2s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:rotate-[360deg]">
+                                <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" className="absolute inset-0">
+                                    {/* The Sharp Spark */}
+                                    <path d="M50 0L53 40L100 50L53 60L50 100L47 60L0 50L47 40L50 0Z" fill="url(#goldGrad1)" className="drop-shadow-[0_0_15px_rgba(231,196,70,0.6)]" />
+                                    {/* Double Orbit Rings */}
+                                    <circle cx="50" cy="50" r="48" stroke="url(#goldGrad1)" strokeWidth="1" strokeDasharray="4 12" className="animate-[spin_15s_linear_infinite]" />
+                                    <circle cx="50" cy="50" r="38" stroke="url(#goldGrad1)" strokeWidth="0.5" strokeDasharray="2 6" style={{ animation: 'spin 10s linear infinite reverse' }} />
+                                    
+                                    <defs>
+                                        <linearGradient id="goldGrad1" x1="0" y1="0" x2="100" y2="100">
+                                            <stop offset="0%" stopColor="#e7c446" />
+                                            <stop offset="50%" stopColor="#ffe58f" />
+                                            <stop offset="100%" stopColor="#b8982c" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                {/* Core Void */}
+                                <div className="absolute w-2 h-2 sm:w-3 sm:h-3 bg-[#030303] rounded-full z-10 shadow-[0_0_10px_#e7c446_inset]" />
+                            </div>
+
+                            {/* The Text */}
+                            <h1 className="text-5xl sm:text-6xl font-black tracking-[0.3em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#e7c446] via-[#ffe58f] to-[#e7c446] drop-shadow-[0_0_20px_rgba(231,196,70,0.3)]">
+                                SNITCH
+                            </h1>
+                        </div>
 
                         <h2 className="text-[10px] tracking-[0.5em] text-[#e7c446]/60 uppercase mb-4 flex items-center justify-center lg:justify-start gap-4">
                             <span className="w-8 h-px bg-[#e7c446]/40"></span>
@@ -107,8 +133,10 @@ const Login = () => {
                                 className="w-full bg-transparent border-b border-white/20 pb-3 lg:pb-4 text-xl sm:text-3xl font-light text-white placeholder-white/20 focus:border-[#e7c446] focus:outline-none transition-all duration-500 rounded-none text-center lg:text-left"
                             />
                             <div className="absolute left-0 bottom-0 w-0 h-px bg-[#e7c446] transition-all duration-500 group-focus-within:w-full shadow-[0_0_10px_rgba(231,196,70,0.5)]"></div>
-                            <div className="lg:hidden mt-2 text-center">
+                            <div className="lg:hidden flex justify-between items-center mt-5 text-center">
                                 <Link to="/forgot-password" className="text-[9px] tracking-[0.2em] text-[#e7c446]/60 hover:text-[#e7c446] uppercase transition-colors">Recover Password</Link>
+                                <ContinueWithGoogle />
+                                
                             </div>
                         </div>
 

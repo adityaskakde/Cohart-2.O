@@ -23,6 +23,7 @@ export const validsateRegisterUser = [
     .notEmpty().withMessage("Fullname is required")
     .isLength({ min: 3 }).withMessage("Full name must be at least 3 characters long"),
     body("isSeller")
+    .optional()
     .toBoolean()
     .isBoolean().withMessage("isSeller must be a boolean value"),
 

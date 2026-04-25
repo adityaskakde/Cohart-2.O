@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router";
 import { useAuth } from "../hook/useAuth";
+import ContinueWithGoogle from "../components/ContinueWithGoogle.jsx";  
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -58,7 +59,7 @@ const Register = () => {
                         <div 
                             className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2s] ease-out"
                             style={{ backgroundImage: "url(https://i.pinimg.com/736x/90/c3/87/90c38782a49880f778e80618b4dec0c1.jpg)" }}
-                            
+
 
 
                         />
@@ -75,9 +76,34 @@ const Register = () => {
                     
                     <div className="mb-10 lg:mb-12 text-center lg:text-left">
                         {/* Attractive Brand Name */}
-                        <h1 className="text-5xl sm:text-6xl font-black tracking-[0.3em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#e7c446] via-[#ffe58f] to-[#e7c446] drop-shadow-[0_0_20px_rgba(231,196,70,0.3)] mb-8 inline-block">
-                            SNITCH
-                        </h1>
+                        {/* Attractive Brand Name & Unique Icon */}
+                        <div className="flex items-center justify-center lg:justify-start mb-8 group cursor-pointer w-max mx-auto lg:mx-0">
+                            {/* Avant-Garde Spark Logo */}
+                            <div className="relative w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mr-4 sm:mr-6 transition-transform duration-[2s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:rotate-[360deg]">
+                                <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" className="absolute inset-0">
+                                    {/* The Sharp Spark */}
+                                    <path d="M50 0L53 40L100 50L53 60L50 100L47 60L0 50L47 40L50 0Z" fill="url(#goldGrad1)" className="drop-shadow-[0_0_15px_rgba(231,196,70,0.6)]" />
+                                    {/* Double Orbit Rings */}
+                                    <circle cx="50" cy="50" r="48" stroke="url(#goldGrad1)" strokeWidth="1" strokeDasharray="4 12" className="animate-[spin_15s_linear_infinite]" />
+                                    <circle cx="50" cy="50" r="38" stroke="url(#goldGrad1)" strokeWidth="0.5" strokeDasharray="2 6" style={{ animation: 'spin 10s linear infinite reverse' }} />
+                                    
+                                    <defs>
+                                        <linearGradient id="goldGrad1" x1="0" y1="0" x2="100" y2="100">
+                                            <stop offset="0%" stopColor="#e7c446" />
+                                            <stop offset="50%" stopColor="#ffe58f" />
+                                            <stop offset="100%" stopColor="#b8982c" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                {/* Core Void */}
+                                <div className="absolute w-2 h-2 sm:w-3 sm:h-3 bg-[#030303] rounded-full z-10 shadow-[0_0_10px_#e7c446_inset]" />
+                            </div>
+
+                            {/* The Text */}
+                            <h1 className="text-5xl sm:text-6xl font-black tracking-[0.3em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#e7c446] via-[#ffe58f] to-[#e7c446] drop-shadow-[0_0_20px_rgba(231,196,70,0.3)]">
+                                SNITCH
+                            </h1>
+                        </div>
 
                         <h2 className="text-[10px] tracking-[0.5em] text-[#e7c446]/60 uppercase mb-4 flex items-center justify-center lg:justify-start gap-4">
                             Registration
@@ -169,16 +195,7 @@ const Register = () => {
                                 <span className="text-[10px] tracking-[0.2em] text-white/50 uppercase group-hover:text-white transition-colors">Vendor Protocol</span>
                             </label>
 
-                            {/* Minimal Google Button */}
-                            <a href="/api/auth/google" className="text-[10px] tracking-[0.2em] text-[#e7c446]/60 hover:text-[#e7c446] uppercase transition-colors flex items-center gap-3 group">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="group-hover:scale-110 transition-transform">
-                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="currentColor"/>
-                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="currentColor"/>
-                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="currentColor"/>
-                                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="currentColor"/>
-                                </svg>
-                                Google Access
-                            </a>
+                           <ContinueWithGoogle />
                         </div>
 
                         {/* Brutalist Button Area */}

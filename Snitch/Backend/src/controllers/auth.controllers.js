@@ -39,6 +39,9 @@ async function sendTokenResponse(user, res, message) {
     export const register = async (req, res) => {
     const { email, contactNumber, password, fullName, isSeller } = req.body;
 
+    console.log("FULL BODY:", req.body); // ✅ ADD THIS
+    console.log("isSeller value:", req.body.isSeller); // ✅ ADD THIS
+
     try {
         const existingUser = await userModel.findOne({
             $or: [
@@ -57,6 +60,7 @@ async function sendTokenResponse(user, res, message) {
             password,
             fullName,
             role: isSeller ? "seller" : "buyer"
+            
         })
 
         await sendTokenResponse(user, res, "User registered successfully")
@@ -93,7 +97,35 @@ export const login = async (req, res) => {
 // Google OAuth callback controller
 
 export const googleOAuthCallback = async (req, res) => {
-console.log(req.user);
+const { emails ,id, displayName,photos } = req.user;
+const email = emails[0].value;
+const profilePic = photos[0].value;
+
+
+
+let user = await userModel.findOne({email});
+
+if(!user){  
+     user = await userModel.create({
+        email,
+        fullName: displayName,
+        googleId: id,
+        role:"seller"
+        
+    }) 
+}
+
+const  token = jwt.sign({
+    id: user._id,
+}, config.JWT_SECRET, {
+    expiresIn: "7d"
+})
+res.cookie("token", token,{
+    httpOnly: true,
+    secure: false
+})
+
+
 
 res.redirect("http://localhost:5173/")
 
